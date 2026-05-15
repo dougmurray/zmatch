@@ -47,15 +47,15 @@ fn ind_from_impedance(f: f32, z: f32) -> f32 {
 }
 
 fn matched_q_from_load_source(r_p: f32, r_s: f32) -> f32 {
-    // Outputs matched Q based on load ans source impedances
-    let insider = (r_p / r_s) - 1.0;
-    insider.sqrt()
+    // Outputs matched Q based on load and source impedances
+    let pre_q  = (f32::max(r_p, r_s) / f32::min(r_p, r_s) ) - 1.0;
+    pre_q.sqrt()
 }
 
 fn matched_q_impedances(r_s: f32, r_p: f32) -> (f32, f32) {
     // This matches the Q for impedance matching circuits
     let q = matched_q_from_load_source(r_p, r_s);
-    let x_s = q * r_s;
-    let x_p = r_p / q;
+    let x_s = q * f32::min(r_p, r_s);
+    let x_p = f32::max(r_p, r_s) / q;
     (x_s, x_p)
 }

@@ -1,7 +1,7 @@
 [package]
 name = "zmatch"
 author = "Doug Murray <douglass.murray@gmail.com>"
-version = "0.1.1"
+version = "0.2.1"
 edition = "2024"
 
 [dependencies]
