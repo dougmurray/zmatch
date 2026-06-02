@@ -31,9 +31,8 @@ fn main() {
     let q_value = matched_q_from_load_source(args.rl, args.rs);
 
     println!("Q @ {q_value}:");
-    println!("C_s: {c_s:E} F, \t L_p: {l_p:E} H");
-    println!("Or");
-    println!("L_s: {l_s:E} H, \t C_p: {c_p:E} F");
+    println!("High-pass: C_s: {c_s:E} F, \t L_p: {l_p:E} H");
+    println!("Low-pass: L_s: {l_s:E} H, \t C_p: {c_p:E} F");
 }
 
 fn cap_from_impedance(f: f32, z: f32) -> f32 {
